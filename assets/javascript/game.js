@@ -1,5 +1,8 @@
 var game = {
-
+    initialize: function(){
+        //TODO: EVERYTHING
+        logger.newMessage("Welcome to star wars RPG");
+    }
 }
 
 
@@ -27,4 +30,5 @@ var logger = {
     }
 }
 
-logger.newMessage("Welcome to star wars RPG");
+
+game.initialize();
