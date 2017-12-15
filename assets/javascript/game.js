@@ -20,5 +20,6 @@ var logger = {
     newMessage : function( msg ){
         var setup = $("<div class='message'>" + msg + "</div>");
         this.element.append( setup );
+        this.element.scrollTop( 999999999 );
     }
 }
