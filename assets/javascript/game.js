@@ -23,3 +23,5 @@ var logger = {
         this.element.scrollTop( 999999999 );
     }
 }
+
+logger.newMessage("Welcome to star wars RPG");
