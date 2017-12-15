@@ -21,6 +21,9 @@ var logger = {
         var setup = $("<div class='message'>" + msg + "</div>");
         this.element.append( setup );
         this.element.scrollTop( 999999999 );
+    },
+    clear : function(){
+        this.element.html("");
     }
 }
 
