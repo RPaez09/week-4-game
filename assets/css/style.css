@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+#logger {
+    background-color: #002171;
+    width: 100%;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+#logger .message {
+    width: 100%;
+    padding: 15px 5px;
+    height: 30px;
+    color: #fbfbfb;
+}
