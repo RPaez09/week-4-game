@@ -11,5 +11,14 @@ function Character ( { "name" : name , "health" : health , "attack" : attack , "
     this.attack = attack,
     this.counterAttack = counterAttack;
 
-    this.element = $(htmlElement);
+    this.element = htmlElement;
+}
+
+//Logger
+var logger = {
+    element : $("#logger"),
+    newMessage : function( msg ){
+        var setup = $("<div class='message'>" + msg + "</div>");
+        this.element.append( setup );
+    }
 }
