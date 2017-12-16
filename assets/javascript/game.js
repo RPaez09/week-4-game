@@ -2,6 +2,20 @@ var game = {
     initialize: function(){
         //TODO: EVERYTHING
         logger.newMessage("Welcome to star wars RPG");
+    },
+
+    playerCharacter : {},
+
+    enemyCharacter : {},
+
+    setPlayer: function( arg ){
+        this.playerCharacter = arg;
+        logger.newMessage("You are now " + this.playerCharacter.name + "!");
+    },
+
+    setEnemy: function( arg ){
+        this.enemyCharacter = arg;
+        logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
     }
 }
 
