@@ -17,6 +17,25 @@ function Character ( { "name" : name , "health" : health , "attack" : attack , "
     this.element = htmlElement;
 }
 
+Character.prototype.combat = function( foe ){
+
+    // initial damage phase
+    foe.health -= this.attack;
+    logger.newMessage( this.name + " attacks " + foe.name + " for " + this.attack + " damage.");
+    
+    // checking if enemy fainted
+    if( foe.health <= 0 ){ foe.health = 0; } // deathblows result in 0 health, no nogatives
+    if( foe.health === 0 ){ return } // you won the battle
+
+    // counter damage phase
+    this.health -= foe.counterAttack;
+    logger.newMessage( foe.name + " retaliates for " + foe.counterAttack + " damage.");
+
+    // checking if you died from that counter
+    if( this.health <= 0 ){ this.health = 0; }
+    if( this.health === 0 ){ return } // you lost!
+}
+
 //Logger
 var logger = {
     element : $("#logger"),
