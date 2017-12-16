@@ -13,11 +13,30 @@ body{
     animation: slideDown 1s 1;
 }
 
-.control-bar h3.logo{
+.control-bar h1.logo{
     font-weight: bold; 
     line-height: 50px;
     padding-left: 10px;
     cursor: default;
+}
+
+.section {
+    opacity: 0;
+    position: relative;
+    margin: 30px auto;
+    min-height: 500px;
+    width: 90%;    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    animation: fadeUp .5s 1;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.section h3{
+    color: #fbfbfb;
+    padding: 15px;
+    font-weight: bold;
+    background-color: #0d47a1;
 }
 
 #logger {
@@ -58,5 +77,16 @@ body{
     }
     to {
         bottom: 0;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        top: 50px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
     }
 }
