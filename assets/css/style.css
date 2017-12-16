@@ -7,8 +7,10 @@ body{
 }
 
 .control-bar{
+    position: relative;
     height: 50px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    animation: slideDown 1s 1;
 }
 
 .control-bar h3.logo{
@@ -47,5 +49,14 @@ body{
     }
     to {
         background-color: inherit;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        bottom: 50px;
+    }
+    to {
+        bottom: 0;
     }
 }
