@@ -35,7 +35,7 @@ body{
 }
 
 .section h3{
-    color: #fbfbfb;
+    color: #ffffff;
     padding: 15px;
     font-weight: bold;
     background-color: #0d47a1;
@@ -58,7 +58,7 @@ body{
     height: 25px;
     line-height: 25px;
     padding: 0 10px;
-    color: #fbfbfb;
+    color: #ffffff;
     animation-name: fadeIn;
     animation-duration: .5s;
     animation-iteration-count: 1;
