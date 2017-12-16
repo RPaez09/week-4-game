@@ -6,6 +6,18 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.control-bar{
+    height: 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.control-bar h3.logo{
+    font-weight: bold; 
+    line-height: 50px;
+    padding-left: 10px;
+    cursor: default;
+}
+
 #logger {
     background-color: #002171;
     width: 100%;
@@ -15,6 +27,7 @@ body{
     font-family: 'Share Tech Mono', monospace;
     overflow-y: hidden;
     padding: 10px 0;
+    cursor: default;
 }
 
 #logger .message {
