@@ -25,13 +25,34 @@ body{
     opacity: 0;
     position: relative;
     margin: 30px auto;
-    min-height: 500px;
+    min-height: 350px;
     width: 90%;    
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     animation: fadeUp .5s 1;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
+    background-color: #e1e2e1;
+}
+
+.character-wrapper {
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+.character-box {
+    height: 200px;
+    width: 200px;
+    margin-top: 40px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.2s ease-in-out;
+}
+
+.character-box:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .section h3{
