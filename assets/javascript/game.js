@@ -1,13 +1,16 @@
 var game = {
-    initialize: function(){
-        //this.startScreen();
-        game.startScreen.open();
 
+    initialize: function(){
+        this.startScreen.run();
     },
 
     playerCharacter : {},
     enemyCharacter : {},
-    startScreen: new Screen( $(".section.start")[0] ),
+
+    startScreen: new Screen( $(".section.start")[0] , function(){
+        this.open();
+        logger.newMessage("Welcome to Star Wars RPG!");
+    } ),
 
     setPlayer: function( arg ){
         this.playerCharacter = arg;
@@ -34,8 +37,9 @@ var game = {
 
 
 //Screen
-function Screen ( element ){
+function Screen ( element , run ){
     this.element = element;
+    this.run = run;
 }
 
 Screen.prototype.open = function(){
