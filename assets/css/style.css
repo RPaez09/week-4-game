@@ -85,14 +85,18 @@ body{
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 @keyframes fadeIn {
     from {
         background-color: #ffffff;
+        opacity: 0;
     }
     to {
         background-color: inherit;
+        opacity: 1;
     }
 }
 
