@@ -39,7 +39,7 @@ var game = {
         this.enemyCharacter = arg;
         logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
     }
-    
+
 }
 
 
@@ -50,24 +50,32 @@ function Screen ( element , run ){
 }
 
 Screen.prototype.open = function(){
+
+    var target = this.element;
+
+    $( target ).css( { "display": "block" } );
+    
     anime( {
-        targets: this.element,
+        targets: target,
         opacity: 1,
         duration: 500,
-        delay: 1000,
+        delay: 500,
         top: 0,
-        easing: 'easeOutQuad'
+        easing: 'easeOutQuad',
     } );
 }
 
 Screen.prototype.close = function(){
+    
+    var target = this.element;
+
     anime( {
-        targets: this.element,
+        targets: target,
         opacity: 0,
         duration: 500,
-        delay: 1000,
         top: 50,
-        easing: 'easeOutQuad'
+        easing: 'easeOutQuad',
+        complete: function(){ $( target ).css( { "display": "none" } ); }
     } );
 }
 
