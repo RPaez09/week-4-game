@@ -27,10 +27,6 @@ body{
     opacity: 0;
     position: relative;
     top: 50px;
-    /*animation: fadeUp .5s 1;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;*/
 }
 
 .section h3{
@@ -89,44 +85,4 @@ body{
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-delay: 1s;
-}
-
-@keyframes fadeIn {
-    from {
-        background-color: #ffffff;
-    }
-    to {
-        background-color: inherit;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        bottom: 50px;
-    }
-    to {
-        bottom: 0;
-    }
-}
-
-@keyframes fadeUp {
-    from {
-        top: 50px;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
-
-@keyframes fadeDown {
-    from {
-        top: 0;
-        opacity: 1;
-    }
-    to {
-        top: 50px;
-        opacity: 0;
-    }
 }

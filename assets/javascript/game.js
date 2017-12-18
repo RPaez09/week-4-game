@@ -2,6 +2,7 @@ var game = {
     initialize: function(){
         //this.startScreen();
         game.startScreen.open();
+
     },
 
     playerCharacter : {},
@@ -17,19 +18,6 @@ var game = {
         this.enemyCharacter = arg;
         logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
     },
-
-    /*startScreen: function(){
-        var open = function(){            
-            anime({
-                targets: $(".section.start")[0],
-                opacity: "1"
-            });
-        }
-
-        open();
-        logger.newMessage("Welcome to star wars RPG");
-
-    },*/
 
     characterSelection: function(){
         var screen = $('.character-selection');
@@ -57,6 +45,17 @@ Screen.prototype.open = function(){
         duration: 500,
         delay: 1000,
         top: 0,
+        easing: 'easeOutQuad'
+    } );
+}
+
+Screen.prototype.close = function(){
+    anime( {
+        targets: this.element,
+        opacity: 0,
+        duration: 500,
+        delay: 1000,
+        top: 50,
         easing: 'easeOutQuad'
     } );
 }
