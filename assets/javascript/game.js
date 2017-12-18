@@ -4,6 +4,53 @@ var game = {
         this.startScreen.run();
     },
 
+    characters: [ 
+        new Character(
+            { 
+                "name" : "Luke Skywalker",
+                "health" : 100,
+                "attack" : 5,
+                "counterAttack" : 10,
+                "img" : "" 
+            }
+        ),
+        new Character(
+            { 
+                "name" : "Yoda",
+                "health" : 100,
+                "attack" : 5,
+                "counterAttack" : 10,
+                "img" : "" 
+            }
+        ),
+        new Character(
+            { 
+                "name" : "Mace Windu",
+                "health" : 100,
+                "attack" : 5,
+                "counterAttack" : 10,
+                "img" : "" 
+            }
+        ),
+        new Character(
+            { 
+                "name" : "Obi Wan Kenobi",
+                "health" : 100,
+                "attack" : 5,
+                "counterAttack" : 10,
+                "img" : "" 
+            }
+        ),
+        new Character(
+            { 
+                "name" : "Darth Maul",
+                "health" : 100,
+                "attack" : 5,
+                "counterAttack" : 10,
+                "img" : "" 
+            }
+        )
+     ],
     playerCharacter : {},
     enemyCharacter : {},
 
@@ -80,13 +127,13 @@ Screen.prototype.close = function(){
 }
 
 //Character
-function Character ( { "name" : name , "health" : health , "attack" : attack , "counterAttack" : counterAttack , "element" : htmlElement } ){
+function Character ( { "name" : name , "health" : health , "attack" : attack , "counterAttack" : counterAttack , "img" : image } ){
     this.name = name;
     this.health = health;
     this.attack = attack,
     this.counterAttack = counterAttack;
 
-    this.element = htmlElement;
+    this.img = image;
 }
 
 Character.prototype.combat = function( foe ){
