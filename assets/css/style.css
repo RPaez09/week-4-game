@@ -86,3 +86,21 @@ body{
     animation-timing-function: ease-out;
     animation-delay: 1s;
 }
+
+@keyframes fadeIn {
+    from {
+        background-color: #ffffff;
+    }
+    to {
+        background-color: inherit;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        bottom: 50px;
+    }
+    to {
+        bottom: 0;
+    }
+}
