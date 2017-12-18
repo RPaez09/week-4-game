@@ -10,6 +10,24 @@ var game = {
     startScreen: new Screen( $(".section.start")[0] , function(){
         this.open();
         logger.newMessage("Welcome to Star Wars RPG!");
+
+        $( document ).on("keydown", document , function( ){
+
+            $( document ).off("keydown");
+            
+            game.startScreen.close();
+
+            game.characterScreen.run();
+
+        });
+
+    } ),
+
+    characterScreen: new Screen( $(".section.character-selection")[0] , function(){ 
+        this.open();
+        logger.newMessage("Please select your character");
+
+        // create the event and lets move forward
     } ),
 
     setPlayer: function( arg ){
@@ -20,19 +38,8 @@ var game = {
     setEnemy: function( arg ){
         this.enemyCharacter = arg;
         logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
-    },
-
-    characterSelection: function(){
-        var screen = $('.character-selection');
-        logger.newMessage("Please choose a character");
-
-        screen.css( "display", "block");
-
-        $("window").on( "keydown.start" , function(){
-
-        } );
-
     }
+    
 }
 
 
