@@ -39,6 +39,10 @@ body{
     font-weight: bold;
 }
 
+.section.start h3:nth-child(2){
+    margin-top: 70px;
+}
+
 .character-wrapper {
     min-height: 300px;
     display: flex;
@@ -83,6 +87,7 @@ body{
     animation-duration: .5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
+    animation-delay: 1s;
 }
 
 @keyframes fadeIn {

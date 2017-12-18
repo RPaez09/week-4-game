@@ -1,7 +1,6 @@
 var game = {
     initialize: function(){
-        logger.newMessage("Welcome to star wars RPG");
-        this.characterSelection();
+        this.startScreen();
     },
 
     playerCharacter : {},
@@ -16,6 +15,13 @@ var game = {
     setEnemy: function( arg ){
         this.enemyCharacter = arg;
         logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
+    },
+
+    startScreen: function(){
+        var screen = $(".section.start");
+        logger.newMessage("Welcome to star wars RPG");
+
+        screen.css( "display", "block");
     },
 
     characterSelection: function(){
