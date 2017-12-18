@@ -11,7 +11,7 @@ var game = {
                 "health" : 100,
                 "attack" : 5,
                 "counterAttack" : 10,
-                "img" : "" 
+                "img" : "pro-luke.jpg" 
             }
         ),
         new Character(
@@ -20,7 +20,7 @@ var game = {
                 "health" : 100,
                 "attack" : 5,
                 "counterAttack" : 10,
-                "img" : "" 
+                "img" : "pro-yoda.jpg" 
             }
         ),
         new Character(
@@ -29,7 +29,7 @@ var game = {
                 "health" : 100,
                 "attack" : 5,
                 "counterAttack" : 10,
-                "img" : "" 
+                "img" : "pro-mace.jpg" 
             }
         ),
         new Character(
@@ -38,7 +38,7 @@ var game = {
                 "health" : 100,
                 "attack" : 5,
                 "counterAttack" : 10,
-                "img" : "" 
+                "img" : "pro-obi.jpg" 
             }
         ),
         new Character(
@@ -47,7 +47,7 @@ var game = {
                 "health" : 100,
                 "attack" : 5,
                 "counterAttack" : 10,
-                "img" : "" 
+                "img" : "pro-darth.jpg" 
             }
         )
      ],
@@ -71,9 +71,23 @@ var game = {
     } ),
 
     characterScreen: new Screen( $(".section.character-selection")[0] , function(){ 
+        
+        var renderChars = function(){ 
+            var html = "";
+            
+            for( var i = 0; i < game.characters.length; i++ ){
+                html += "<div class='character-box'> \
+                <img src='assets/images/" + game.characters[i].img + "'/> </div>";
+            }
+
+            $(".character-wrapper").html( html );
+            
+        }
+        
         this.open();
         logger.newMessage("Please select your character");
 
+        renderChars();
         // create the event and lets move forward
     } ),
 
