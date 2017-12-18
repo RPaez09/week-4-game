@@ -1,11 +1,12 @@
 var game = {
     initialize: function(){
-        this.startScreen();
+        //this.startScreen();
+        game.startScreen.open();
     },
 
     playerCharacter : {},
-
     enemyCharacter : {},
+    startScreen: new Screen( $(".section.start")[0] ),
 
     setPlayer: function( arg ){
         this.playerCharacter = arg;
@@ -17,12 +18,18 @@ var game = {
         logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
     },
 
-    startScreen: function(){
-        var screen = $(".section.start");
+    /*startScreen: function(){
+        var open = function(){            
+            anime({
+                targets: $(".section.start")[0],
+                opacity: "1"
+            });
+        }
+
+        open();
         logger.newMessage("Welcome to star wars RPG");
 
-        screen.css( "display", "block");
-    },
+    },*/
 
     characterSelection: function(){
         var screen = $('.character-selection');
@@ -30,10 +37,29 @@ var game = {
 
         screen.css( "display", "block");
 
+        $("window").on( "keydown.start" , function(){
+
+        } );
+
     }
 }
 
 
+//Screen
+function Screen ( element ){
+    this.element = element;
+}
+
+Screen.prototype.open = function(){
+    anime( {
+        targets: this.element,
+        opacity: 1,
+        duration: 500,
+        delay: 1000,
+        top: 0,
+        easing: 'easeOutQuad'
+    } );
+}
 
 //Character
 function Character ( { "name" : name , "health" : health , "attack" : attack , "counterAttack" : counterAttack , "element" : htmlElement } ){
