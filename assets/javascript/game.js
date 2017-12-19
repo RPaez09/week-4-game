@@ -149,7 +149,7 @@ var game = {
                     setTimeout( function(){
                         game.characterScreen.close();
 
-                        game.enemyScreen.open();
+                        game.enemyScreen.run();
                     } , 500 )
                 }
             });
@@ -170,9 +170,34 @@ var game = {
 
     enemyScreen: new Screen( $(".section.enemy-selection")[0] , function(){
         this.open();
-        
         logger.newMessage("Choose an oponent!");
-        var renderEnemies = function(){}
+        var renderEnemies = function(){
+        
+            var html = "";
+            var enemyTimeLine = anime.timeline();
+
+            for( var i = 0; i < game.enemyArray.length; i++ ){
+                html += "<div class='enemy-box' style='opacity: 0;' data-enemyIndex='" + i + "'><img src='assets/images/" + 
+                game.enemyArray[ i ].img + "'/> <p>"+ game.enemyArray[ i ].name + "</p></div>";
+            }
+
+            $('.enemy-wrapper').html( html );
+
+            var boxes = $(".enemy-box");
+            
+            for( var m = 0; m < boxes.length; m++ ){
+                enemyTimeLine.add({
+                    targets : boxes[ m ],
+                    opacity : 1,
+                    duration : 200,
+                    delay : 150,
+                    offset : "-=50" 
+                });
+            }
+
+        }
+
+        renderEnemies();
     } ),
 
     setPlayer: function( arg ){

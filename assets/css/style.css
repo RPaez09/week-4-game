@@ -40,7 +40,7 @@ body{
     margin-top: 70px;
 }
 
-.character-wrapper {
+.character-wrapper, .enemy-wrapper {
     min-height: 300px;
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +48,7 @@ body{
     justify-items: center;
 }
 
-.character-box {
+.character-box, .enemy-box {
     height: 250px;
     width: 250px;
     margin: 40px 20px;
@@ -61,7 +61,7 @@ body{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.character-box p {
+.character-box p, .enemy-box p {
     font-weight: bold;
     text-align: center;
     line-height: 45px;
