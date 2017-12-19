@@ -74,21 +74,36 @@ var game = {
         
         var renderChars = function(){ 
             var html = "";
+            var boxTimeLine = anime.timeline(); // to animate them in staggered fashion
             
             for( var i = 0; i < game.characters.length; i++ ){
-                html += "<div class='character-box'> \
+                html += "<div class='character-box' style='opacity: 0;'> \
                 <img src='assets/images/" + game.characters[i].img + "\
                 '/>  <p>"+ game.characters[i].name +"</p> </div>";
             }
-
+            
             $(".character-wrapper").html( html );
             
+            var boxes = $(".character-box");
+
+            for( var j = 0; j < boxes.length; j++ ){
+                boxTimeLine.add({
+                    targets : boxes[ j ],
+                    opacity: 1,
+                    duration: 200,
+                    delay: 150,
+                    offset: "-=50",
+                    easing: "easeOutQuad"
+                });
+            } 
         }
         
         this.open();
+
         logger.newMessage("Please select your character");
 
-        renderChars();
+        setTimeout(renderChars , 500);
+
         // create the event and lets move forward
     } ),
 
