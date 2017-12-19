@@ -52,6 +52,7 @@ var game = {
         )
      ],
     playerCharacter : {},
+    enemyArray : [],
     enemyCharacter : {},
 
     startScreen: new Screen( $(".section.start")[0] , function(){
@@ -140,11 +141,24 @@ var game = {
                 duration: 500,
                 easing: "easeInOutQuad",
                 complete: function(){ // Scroll window to top when done
+                    
                     $('html, body').animate({
                         scrollTop: 0
                     }, 500);
+
+                    setTimeout( function(){
+                        game.characterScreen.close();
+                    } , 500 )
                 }
             });
+
+            for( var x = 0; x < game.characters.length; x++ ){ //create the enemy characters array
+
+                if( x != selectedCharacter ){
+                    game.enemyArray.push( game.characters[ x ] );
+                }
+
+            }
         
             $(".character-box").off("click"); // remove this event
 
