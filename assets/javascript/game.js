@@ -101,9 +101,16 @@ var game = {
 
         logger.newMessage("Please select your character");
 
-        setTimeout(renderChars , 500);
+        //setTimeout(renderChars , 500);
+        renderChars();
 
-        // create the event and lets move forward
+        $(".character-box").on("click" , function( e ){
+            var selectedCharacter =  $(e.currentTarget).attr("data-character"); 
+
+            game.setPlayer( game.characters[selectedCharacter] );
+
+        });
+
     } ),
 
     setPlayer: function( arg ){
