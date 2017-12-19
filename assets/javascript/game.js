@@ -77,9 +77,8 @@ var game = {
             var boxTimeLine = anime.timeline(); // to animate them in staggered fashion
             
             for( var i = 0; i < game.characters.length; i++ ){
-                html += "<div class='character-box' style='opacity: 0;'> \
-                <img src='assets/images/" + game.characters[i].img + "\
-                '/>  <p>"+ game.characters[i].name +"</p> </div>";
+                html += "<div class='character-box' data-character='" + i + "' style='opacity: 0;'>"+
+                "<img src='assets/images/"+ game.characters[i].img +"'/>  <p>"+ game.characters[i].name +"</p> </div>";
             }
             
             $(".character-wrapper").html( html );
