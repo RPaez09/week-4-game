@@ -77,7 +77,8 @@ var game = {
             
             for( var i = 0; i < game.characters.length; i++ ){
                 html += "<div class='character-box'> \
-                <img src='assets/images/" + game.characters[i].img + "'/> </div>";
+                <img src='assets/images/" + game.characters[i].img + "\
+                '/>  <p>"+ game.characters[i].name +"</p> </div>";
             }
 
             $(".character-wrapper").html( html );

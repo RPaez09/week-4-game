@@ -10,7 +10,7 @@ body{
 .control-bar{
     position: relative;
     height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     animation: slideDown .3s 1;
     animation-timing-function: ease-in-out;
@@ -59,6 +59,13 @@ body{
 
 .character-box:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.character-box p {
+    font-weight: bold;
+    text-align: center;
+    line-height: 45px;
+    color: #333333;
 }
 
 
