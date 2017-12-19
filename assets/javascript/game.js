@@ -97,17 +97,56 @@ var game = {
             } 
         }
         
-        this.open();
+        this.open(); //open the character selection screen
 
         logger.newMessage("Please select your character");
 
-        //setTimeout(renderChars , 500);
-        renderChars();
+        renderChars(); //render the characters on screen
 
         $(".character-box").on("click" , function( e ){
+
             var selectedCharacter =  $(e.currentTarget).attr("data-character"); 
 
             game.setPlayer( game.characters[selectedCharacter] );
+
+            $(e.currentTarget).addClass("selectedChar"); // lets animate all but the selected char
+
+            var enemyTargets = anime.timeline();
+
+            var firstLocation = $(".character-box:not(.selectedChar)").position(); // xy coordinates of first character
+            var selectedLocation = $(".character-box.selectedChar").position(); // xy coordinates of chosen character
+
+            var finalLocation = { "bottom" : ( selectedLocation.top - firstLocation.top ) , "right" : ( selectedLocation.left - firstLocation.left ) }; // new coordinates based on difference of the first two
+
+            for( var j = 0; j < $(".character-box:not(.selectedChar)").length; j++ ){
+                enemyTargets.add({
+                    targets : $(".character-box:not(.selectedChar)")[ j ],
+                    opacity: 0,
+                    translateY: 50,
+                    duration: 200,
+                    delay: 100, 
+                    offset: "-=100",
+                    easing: "easeOutQuad"
+                });    
+            }
+            
+            $(".character-box.selectedChar").css( "position" , "relative"  ); // change position to relative for animation
+
+            anime({
+                targets: $(".character-box.selectedChar")[0],
+                delay: 1000,
+                bottom: finalLocation.bottom + "px",
+                right: finalLocation.right + "px",
+                duration: 500,
+                easing: "easeInOutQuad",
+                complete: function(){ // Scroll window to top when done
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 500);
+                }
+            });
+        
+            $(".character-box").off("click"); // remove this event
 
         });
 
