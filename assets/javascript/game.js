@@ -148,6 +148,8 @@ var game = {
 
                     setTimeout( function(){
                         game.characterScreen.close();
+
+                        game.enemyScreen.open();
                     } , 500 )
                 }
             });
@@ -164,6 +166,13 @@ var game = {
 
         });
 
+    } ),
+
+    enemyScreen: new Screen( $(".section.enemy-selection")[0] , function(){
+        this.open();
+        
+        logger.newMessage("Choose an oponent!");
+        var renderEnemies = function(){}
     } ),
 
     setPlayer: function( arg ){
