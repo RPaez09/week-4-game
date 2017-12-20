@@ -256,7 +256,7 @@ var game = {
                         setTimeout( function(){
                             game.enemyScreen.close();
     
-                            //next
+                            game.combatScreen.run();
                         } , 500 )
                     }
                 });
@@ -264,12 +264,16 @@ var game = {
                 setTimeout( function(){
                     game.enemyScreen.close();
 
-                    //next
+                    game.combatScreen.run();
                 } , 1500 )
             }
             
             $(".enemy-box").off("click");
         } );
+    } ),
+
+    combatScreen: new Screen( $(".section.combat-section")[0] , function(){
+        this.open();
     } ),
 
     setPlayer: function( arg ){
