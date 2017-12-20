@@ -63,9 +63,7 @@ var game = {
 
             $( document ).off("keydown");
             
-            game.startScreen.close();
-
-            game.characterScreen.run();
+            game.startScreen.transitionTo( game.characterScreen );
 
         });
 
@@ -147,19 +145,11 @@ var game = {
                             scrollTop: 0
                         }, 500);
     
-                        setTimeout( function(){
-                            game.characterScreen.close();
-    
-                            game.enemyScreen.run();
-                        } , 500 )
+                        game.characterScreen.transitionTo( game.enemyScreen , 500 );
                     }
                 });
             } else {
-                setTimeout( function(){
-                    game.characterScreen.close();
-
-                    game.enemyScreen.run();
-                } , 1500 )
+                game.characterScreen.transitionTo( game.enemyScreen , 1500 );
             }
 
             for( var x = 0; x < game.characters.length; x++ ){ //create the enemy characters array
@@ -253,19 +243,11 @@ var game = {
                             scrollTop: 0
                         }, 500);
     
-                        setTimeout( function(){
-                            game.enemyScreen.close();
-    
-                            game.combatScreen.run();
-                        } , 500 )
+                        game.enemyScreen.transitionTo( game.combatScreen , 500 );
                     }
                 });
             } else {
-                setTimeout( function(){
-                    game.enemyScreen.close();
-
-                    game.combatScreen.run();
-                } , 1500 )
+                game.enemyScreen.transitionTo( game.combatScreen , 1500 );
             }
             
             $(".enemy-box").off("click");
@@ -323,6 +305,22 @@ Screen.prototype.close = function(){
         easing: 'easeOutQuad',
         complete: function(){ $( target ).css( { "display": "none" } ); }
     } );
+}
+
+Screen.prototype.transitionTo = function( target , delay ){
+    
+    currentScreen = this;
+
+    if( delay ){
+        setTimeout( function(){
+            currentScreen.close();
+            target.run();
+        } , delay);
+    } else {
+        currentScreen.close();
+        target.run();
+    }
+
 }
 
 //Character
