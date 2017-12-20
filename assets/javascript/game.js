@@ -198,6 +198,61 @@ var game = {
         }
 
         renderEnemies();
+
+        $(".enemy-box").on("click" , function(e){
+
+            var selectedEnemy =  $(e.currentTarget).attr("data-enemyIndex"); 
+
+            game.setEnemy( game.enemyArray[selectedEnemy] );
+
+            $(e.currentTarget).addClass("selectedChar"); // lets animate all but the selected char
+
+            var remainingTimeline = anime.timeline();
+            var remainingEnemies = $(".enemy-box:not(.selectedChar)");
+
+            for( var y = 0; y < remainingEnemies.length; y++ ){
+
+                remainingTimeline.add( {
+                    targets: remainingEnemies[ y ],
+                    opacity: 0,
+                    translateY: 50,
+                    duration: 150,
+                    delay: 100,
+                    offset: "-=50"
+                } );
+
+            }
+
+            $(".enemy-box.selectedChar").css( "position" , "relative"  );
+
+            var firstLocation = $(".enemy-box:not(.selectedChar)").position();
+            var selectedLocation = $(".enemy-box.selectedChar").position();
+
+            var finalLocation = { "bottom" : ( selectedLocation.top - firstLocation.top ) , "right" : ( selectedLocation.left - firstLocation.left ) }; // new coordinates based on difference of the first two
+
+            anime({
+                targets: $(".enemy-box.selectedChar")[0],
+                delay: 1000,
+                bottom: finalLocation.bottom + "px",
+                right: finalLocation.right + "px",
+                duration: 500,
+                easing: "easeInOutQuad",
+                complete: function(){ // Scroll window to top when done
+                    
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 500);
+
+                    setTimeout( function(){
+                        game.enemyScreen.close();
+
+                        //next
+                    } , 500 )
+                }
+            });
+
+            $(".enemy-box").off("click");
+        } );
     } ),
 
     setPlayer: function( arg ){
@@ -207,7 +262,7 @@ var game = {
 
     setEnemy: function( arg ){
         this.enemyCharacter = arg;
-        logger.newMessage(this.enemyCharacter.name + "has accepted your challenge. Fight!");
+        logger.newMessage(this.enemyCharacter.name + " has accepted your challenge. Fight!");
     }
 
 }
