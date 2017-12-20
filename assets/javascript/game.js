@@ -239,27 +239,35 @@ var game = {
 
             var finalLocation = { "bottom" : ( selectedLocation.top - firstLocation.top ) , "right" : ( selectedLocation.left - firstLocation.left ) }; // new coordinates based on difference of the first two
 
-            anime({
-                targets: $(".enemy-box.selectedChar")[0],
-                delay: 1000,
-                bottom: finalLocation.bottom + "px",
-                right: finalLocation.right + "px",
-                duration: 500,
-                easing: "easeInOutQuad",
-                complete: function(){ // Scroll window to top when done
-                    
-                    $('html, body').animate({
-                        scrollTop: 0
-                    }, 500);
+            if( selectedEnemy != 0 ){
+                anime({
+                    targets: $(".enemy-box.selectedChar")[0],
+                    delay: 1000,
+                    bottom: finalLocation.bottom + "px",
+                    right: finalLocation.right + "px",
+                    duration: 500,
+                    easing: "easeInOutQuad",
+                    complete: function(){ // Scroll window to top when done
+                        
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 500);
+    
+                        setTimeout( function(){
+                            game.enemyScreen.close();
+    
+                            //next
+                        } , 500 )
+                    }
+                });
+            } else {
+                setTimeout( function(){
+                    game.enemyScreen.close();
 
-                    setTimeout( function(){
-                        game.enemyScreen.close();
-
-                        //next
-                    } , 500 )
-                }
-            });
-
+                    //next
+                } , 1500 )
+            }
+            
             $(".enemy-box").off("click");
         } );
     } ),
