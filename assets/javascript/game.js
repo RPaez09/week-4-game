@@ -211,7 +211,8 @@ var game = {
 
             var selectedEnemy =  $(e.currentTarget).attr("data-enemyIndex"); 
 
-            game.setEnemy( game.enemyArray[selectedEnemy] );
+            game.setEnemy( game.enemyArray[selectedEnemy] ); // set the game enemy
+            game.enemyArray.splice( selectedEnemy , 1 ); // remove chosen enemy from pool of remaining enemies
 
             $(e.currentTarget).addClass("selectedChar"); // lets animate all but the selected char
 
