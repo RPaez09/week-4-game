@@ -133,26 +133,34 @@ var game = {
             
             $(".character-box.selectedChar").css( "position" , "relative"  ); // change position to relative for animation
 
-            anime({
-                targets: $(".character-box.selectedChar")[0],
-                delay: 1000,
-                bottom: finalLocation.bottom + "px",
-                right: finalLocation.right + "px",
-                duration: 500,
-                easing: "easeInOutQuad",
-                complete: function(){ // Scroll window to top when done
-                    
-                    $('html, body').animate({
-                        scrollTop: 0
-                    }, 500);
+            if( selectedCharacter != 0 ){
+                anime({
+                    targets: $(".character-box.selectedChar")[0],
+                    delay: 1000,
+                    bottom: finalLocation.bottom + "px",
+                    right: finalLocation.right + "px",
+                    duration: 500,
+                    easing: "easeInOutQuad",
+                    complete: function(){ // Scroll window to top when done
+                        
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 500);
+    
+                        setTimeout( function(){
+                            game.characterScreen.close();
+    
+                            game.enemyScreen.run();
+                        } , 500 )
+                    }
+                });
+            } else {
+                setTimeout( function(){
+                    game.characterScreen.close();
 
-                    setTimeout( function(){
-                        game.characterScreen.close();
-
-                        game.enemyScreen.run();
-                    } , 500 )
-                }
-            });
+                    game.enemyScreen.run();
+                } , 1500 )
+            }
 
             for( var x = 0; x < game.characters.length; x++ ){ //create the enemy characters array
 
