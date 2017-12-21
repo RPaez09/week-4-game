@@ -68,6 +68,19 @@ body{
     color: #333333;
 }
 
+.combat-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.combat-box {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 250px;
+    height: 400px;
+    opacity: 0;
+}
 
 #logger {
     background-color: #002171;
