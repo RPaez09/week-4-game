@@ -68,6 +68,7 @@ body{
     color: #333333;
 }
 
+/* Combat Specific */
 .combat-wrapper {
     display: flex;
     flex-wrap: nowrap;
@@ -79,6 +80,30 @@ body{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     width: 250px;
     height: 400px;
+    opacity: 0;
+}
+
+.combat-box .health-bar {
+    position: relative;
+    margin: 50px 10px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 2px;
+}
+
+.combat-box .health-bar .progress {
+    background-color: #9ccc65;
+    height: 100%;
+    opacity: 0;
+}
+
+.combat-box .health-bar .quantity {
+    position: absolute;
+    width: 230px;
+    font-size: 26px;
+    font-weight: bold;
+    top: 8px;
+    text-align: center;
     opacity: 0;
 }
 
