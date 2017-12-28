@@ -272,19 +272,22 @@ var game = {
 
         var introTimeline = anime.timeline();
 
-        playerBox.html("<img src='assets/images/" + game.playerCharacter.img + "'/><p>" + game.playerCharacter.name + "</p>");
-        enemyBox.html("<img src='assets/images/" + game.enemyCharacter.img + "'/><p>" + game.enemyCharacter.name + "</p>");
+        playerBox.html("<img src='assets/images/" + game.playerCharacter.img + "'/><p>" + game.playerCharacter.name + "</p><div class='health-bar'><span class='quantity player-quantity'></span><div class='progress player-progress'></div></div>");
+        enemyBox.html("<img src='assets/images/" + game.enemyCharacter.img + "'/><p>" + game.enemyCharacter.name + "</p><div class='health-bar'><span class='quantity enemy-quantity'></span><div class='progress enemy-progress'></div></div>");
 
-        setTimeout( function(){
-            for( var o = 0; o < combatBoxes.length; o++ ){
+        setTimeout( function(){ 
+
+            for( var o = 0; o < combatBoxes.length; o++ ){ // animate in the player boxes
                 introTimeline.add({
                     targets : combatBoxes[ o ],
                     opacity : 1,
-                    duration : 200,
-                    delay : 150,
+                    top: 0,
+                    duration : 300,
+                    delay : 200,
                     offset : "-=50" 
                 });
             }
+
         }  , 500);
         
 
