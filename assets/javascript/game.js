@@ -263,8 +263,31 @@ var game = {
         }
 
         reset();
-
+        
         this.open();
+
+        var playerBox = $(".combat-box.player");
+        var enemyBox = $(".combat-box.enemy");
+        var combatBoxes = $(".combat-box");
+
+        var introTimeline = anime.timeline();
+
+        playerBox.html("<img src='assets/images/" + game.playerCharacter.img + "'/><p>" + game.playerCharacter.name + "</p>");
+        enemyBox.html("<img src='assets/images/" + game.enemyCharacter.img + "'/><p>" + game.enemyCharacter.name + "</p>");
+
+        setTimeout( function(){
+            for( var o = 0; o < combatBoxes.length; o++ ){
+                introTimeline.add({
+                    targets : combatBoxes[ o ],
+                    opacity : 1,
+                    duration : 200,
+                    delay : 150,
+                    offset : "-=50" 
+                });
+            }
+        }  , 500);
+        
+
     } ),
 
     setPlayer: function( arg ){
