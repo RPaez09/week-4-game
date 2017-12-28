@@ -254,7 +254,16 @@ var game = {
         } );
     } ),
 
-    combatScreen: new Screen( $(".section.combat-section")[0] , function(){
+    combatScreen: new Screen( $(".section.combat-section")[0] , function(){ 
+
+        var combatWrapper = $(".combat-wrapper");
+
+        var reset = function(){ //resets combatwrapper html
+            combatWrapper.html("<div class='combat-box player'></div><div class='combat-box enemy'></div>");
+        }
+
+        reset();
+
         this.open();
     } ),
 
